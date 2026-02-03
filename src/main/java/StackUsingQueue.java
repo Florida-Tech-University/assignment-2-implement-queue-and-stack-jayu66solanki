@@ -24,14 +24,9 @@ public class StackUsingQueue<E> implements StackADT<E> {
 
     @Override
     public void push(E e) {
-        Objects.requireNonNull(e, "Null elements are not supported.");
-
-        // Step 1: enqueue element
+        Objects.requireNonNull(e, "Null elements are not supported in this assignment.");
         q.enqueue(e);
-
-        // Step 2: rotate queue so new element moves to front
-        int rotateCount = q.size() - 1;
-        for (int i = 0; i < rotateCount; i++) {
+        for (int i = 0; i < q.size() - 1; i++) {
             q.enqueue(q.dequeue());
         }
     }
